@@ -1,0 +1,98 @@
+IST FÜR DIE AKTUELLE FASSUNG NICHT MEHR AKTUELL
+
+Auffallend ist, dass die Implementierung als LinkedList der Implementierung auf Grundlage eines  Arrays, was Laufzeiten angeht deutlich unterliegt. 
+Einzig bei direktem Zugriff auf das erste Element und das Löschen der gesamten Liste ist die LinkedList etwas performanter. 
+Sowohl bei enqueue als auch bei dequeue muss die LinkedList durchlaufen werden, um den passenden Index zu finden. 
+Dies führt bereits zu einer Laufzeitverlängerung. Unsere Vermutung ist, dass die doppelte Modulo-Funktion aus getNode dafür verantwortlich ist. 
+Diese ist nötig geworden, da modulo nicht - wie wir erwartet hatten - den positiven Modulowert einer negativen Modulofunktion zurückgibt 
+sondern den negativen (-13 % 64 = -13 statt 51). 
+
+ index = (index % numberOfNodes + numberOfNodes) % numberOfNodes;
+
+Im Gegensatz dazu kann ein Array einfacher auf Indizes zugreifen.
+Grundsätzlich sollten Lösch- und Einfügefunktionen (ohne Index) bei der verketteten Liste schneller laufen als bei einem Arrays,
+da nur die Referenzen auf die Nachfolger verändert werden müssen (Zeigt sich hier *1). Sobald ein Index ins Spiel kommt scheint ein Array die bessere Wahl zu sein, 
+da nicht die Liste zum Index durchlaufen werden muss.
+
+
+
+Testdata old version linkedlist:
+
+ExecutionTime 0,000068 to enqueue 10 elements (array-based)
+ExecutionTime 0,000512 to enqueue 10 elements (Linked-List-based)
+ExecutionTime 0,000021 to dequeue 10 elements (Array-based)
+ExecutionTime 0,000021 to dequeue 10 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,000043 to enqueue 100 elements (array-based)
+ExecutionTime 0,000213 to enqueue 100 elements (Linked-List-based)
+ExecutionTime 0,000035 to dequeue 100 elements (Array-based)
+ExecutionTime 0,000171 to dequeue 100 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,000535 to enqueue 1000 elements (array-based)
+ExecutionTime 0,001789 to enqueue 1000 elements (Linked-List-based)
+ExecutionTime 0,000481 to dequeue 1000 elements (Array-based)
+ExecutionTime 0,002465 to dequeue 1000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,001504 to enqueue 10000 elements (array-based)
+ExecutionTime 0,104706 to enqueue 10000 elements (Linked-List-based)
+ExecutionTime 0,000926 to dequeue 10000 elements (Array-based)
+ExecutionTime 0,120783 to dequeue 10000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,019407 to enqueue 100000 elements (array-based)
+ExecutionTime 11,452684 to enqueue 100000 elements (Linked-List-based)
+ExecutionTime 0,003303 to dequeue 100000 elements (Array-based)
+ExecutionTime 12,166420 to dequeue 100000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,000013 to get the first element of a queue with 10 elements (array-based)
+ExecutionTime 0,000007 to get the first element of a queue with 10 elements (linked-list-based)
+ExecutionTime 0,000009 to clear a queue with 10 elements (array-based)
+ExecutionTime 0,000001 to clear a queue with 10 elements (linked-list-based)
+
+Testdata new version of linkedlist:
+
+ExecutionTime 0,000033 to enqueue 10 elements (array-based)
+ExecutionTime 0,000460 to enqueue 10 elements (Linked-List-based)
+ExecutionTime 0,000022 to dequeue 10 elements (Array-based)
+ExecutionTime 0,000013 to dequeue 10 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,000043 to enqueue 100 elements (array-based)
+ExecutionTime 0,000079 to enqueue 100 elements (Linked-List-based)
+ExecutionTime 0,000035 to dequeue 100 elements (Array-based)
+ExecutionTime 0,000031 to dequeue 100 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,000613 to enqueue 1000 elements (array-based)
+ExecutionTime 0,000719 to enqueue 1000 elements (Linked-List-based)
+ExecutionTime 0,000401 to dequeue 1000 elements (Array-based)
+ExecutionTime 0,000359 to dequeue 1000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,001523 to enqueue 10000 elements (array-based)
+ExecutionTime 0,001491 to enqueue 10000 elements (Linked-List-based)
+ExecutionTime 0,000722 to dequeue 10000 elements (Array-based)
+ExecutionTime 0,000691 to dequeue 10000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,013076 to enqueue 100000 elements (array-based)
+ExecutionTime 0,009508 to enqueue 100000 elements (Linked-List-based)
+ExecutionTime 0,003430 to dequeue 100000 elements (Array-based)
+ExecutionTime 0,004229 to dequeue 100000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,038380 to enqueue 1000000 elements (array-based)
+ExecutionTime 1,233958 to enqueue 1000000 elements (Linked-List-based)
+ExecutionTime 0,013623 to dequeue 1000000 elements (Array-based)
+ExecutionTime 0,019537 to dequeue 1000000 elements (Linked-List-based)
+__________________________________________________________________________
+
+ExecutionTime 0,000011 to get the first element of a queue with 10 elements (array-based)
+ExecutionTime 0,000015 to get the first element of a queue with 10 elements (linked-list-based)
+ExecutionTime 0,000024 to clear a queue with 10 elements (array-based)
+ExecutionTime 0,000022 to clear a queue with 10 elements (linked-list-based)
+
