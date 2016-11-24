@@ -1,4 +1,4 @@
-package abgabe05.test;
+package abgabe05;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Test;
 
-import abgabe05.main.Compressor;
-import abgabe05.main.Huffman;
+import abgabe05.Compressor;
+import abgabe05.Huffman;
 
 public class HuffmanTest {
     
@@ -23,12 +23,12 @@ public class HuffmanTest {
     
     @Test
     public void compress() throws Exception {
-        Path path = Paths.get("/Users/David/git/AD/src/abgabe05/resources/data16384.txt");
+        Path path = Paths.get("src/abgabe05/resources/data16384.txt");
         long length = Files.size(path);
         InputStream filestream = Files.newInputStream(path);
         OutputStream compressedFile = Files
             .newOutputStream(
-                Paths.get("/Users/David/git/AD/src/abgabe05/resources/compressed/data16384.txt"));
+                Paths.get("src/abgabe05/resources/compressed/data16384.txt"));
         
         huffman.compress(filestream, compressedFile, length);
     }

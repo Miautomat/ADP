@@ -219,3 +219,8 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 
+# Project specific
+/src/test/resources/compressed/
+/src/test/resources/decompressed/drugs.txt
+/src/test/resources/decompressed/
+/src/test/resources/decompressed/data16384.txt

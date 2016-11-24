@@ -1,4 +1,4 @@
-package abgabe08.main;
+package abgabe08;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,11 +1,11 @@
-package abgabe05.main;
+package abgabe05;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.PriorityQueue;
 
-import abgabe05.main.princeton.BinaryIn;
-import abgabe05.main.princeton.BinaryOut;
+import abgabe05.princeton.BinaryIn;
+import abgabe05.princeton.BinaryOut;
 
 public class Huffman implements Algorithm {
     

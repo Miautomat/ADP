@@ -1,4 +1,4 @@
-package abgabe05.main.princeton;
+package abgabe05.princeton;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

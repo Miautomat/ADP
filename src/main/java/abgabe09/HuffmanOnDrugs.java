@@ -8,14 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.PriorityQueue;
 
-import ressources.Algorithm;
-import ressources.princeton.BinaryIn;
-import ressources.princeton.BinaryOut;
-
-// import abgabe05.main.Algorithm;
-// import abgabe05.main.princeton.BinaryIn;
-// import abgabe05.main.princeton.BinaryOut;
-// import scala.Char;
+import abgabe05.Algorithm;
+import abgabe05.princeton.BinaryIn;
+import abgabe05.princeton.BinaryOut;
 
 public class HuffmanOnDrugs implements Algorithm {
     

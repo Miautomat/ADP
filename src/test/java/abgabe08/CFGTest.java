@@ -1,4 +1,4 @@
-package abgabe08.test;
+package abgabe08;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,8 +9,8 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-import abgabe08.main.CFG;
-import abgabe08.main.Rule;
+import abgabe08.CFG;
+import abgabe08.Rule;
 
 /**
  * 

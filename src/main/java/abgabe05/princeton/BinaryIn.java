@@ -1,4 +1,4 @@
-package abgabe05.princeton.copy;
+package abgabe05.princeton;
 
 import java.io.BufferedInputStream;
 import java.io.File;

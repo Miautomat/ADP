@@ -1,4 +1,4 @@
-package ressources;
+package abgabe05;
 
 import java.io.InputStream;
 import java.io.OutputStream;

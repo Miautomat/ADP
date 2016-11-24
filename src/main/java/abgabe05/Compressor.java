@@ -1,4 +1,4 @@
-package abgabe05.main;
+package abgabe05;
 
 import java.io.InputStream;
 import java.io.OutputStream;

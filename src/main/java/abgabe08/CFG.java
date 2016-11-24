@@ -1,4 +1,4 @@
-package abgabe08.main;
+package abgabe08;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -542,7 +542,6 @@ public class CFG {
     }
     
     /**
-     * @param left
      * @return true if rule with param left exists
      */
     private boolean ruleExists(Rule r) {
