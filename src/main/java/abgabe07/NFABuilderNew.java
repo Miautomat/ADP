@@ -48,15 +48,16 @@ public class NFABuilderNew {
         return nfa;
     }
     
-    // public Graph toDFA(String name, String start) {
-    // Graph internNFA = buildNFA(name, start);
-    // Graph dfa = new MultiGraph(name);
-    // Node startNode = dfa.addNode(getNextNodeID());
-    // startNode.addAttribute("nodes", this.start.getId());
-    // for (Node node : internNFA.getNodeSet()) {
-    //
-    // }
-    // }
+    public Graph toDFA(String name, String start) {
+        Graph internNFA = buildNFA(name, start);
+        Graph dfa = new MultiGraph(name);
+        Node startNode = dfa.addNode(getNextNodeID());
+        startNode.addAttribute("nodes", this.start.getId());
+        for (Node node : internNFA.getNodeSet()) {
+            
+        }
+        return null;
+    }
     
     public void addState(String node1, String letter, String node2) {
         Edge newEdge = nfa.addEdge(getNextEdgeID(), node1, node2, true);
