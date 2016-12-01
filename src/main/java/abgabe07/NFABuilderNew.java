@@ -15,12 +15,16 @@ import org.graphstream.graph.implementations.MultiGraph;
 public class NFABuilderNew {
     private Graph nfa;
     private Node start;
+    
+    @SuppressWarnings("unused")
     private List<Node> end = new ArrayList<>();
     private Integer edgeId = 0;
     private Integer nodeId = 0;
+    @SuppressWarnings("unused")
     private String[] alphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
         "n", "o", "p", "q",
         "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+    @SuppressWarnings("unused")
     private int i = 0; // counter for knowing the right index to choose next
                        // character naming a node
     
@@ -48,6 +52,7 @@ public class NFABuilderNew {
         return nfa;
     }
     
+    @SuppressWarnings("unused")
     public Graph toDFA(String name, String start) {
         Graph internNFA = buildNFA(name, start);
         Graph dfa = new MultiGraph(name);

@@ -11,9 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 
  * @author Mieke Narjes, Luka Hartwig, David Hoeck
- *
  */
 public class CFG {
     
@@ -132,8 +130,8 @@ public class CFG {
     
     /**
      * Eliminates all Lambdarules
+     * 
      * @return a new grammar, without Lambdarules.
-     *
      */
     public CFG setLambdaFree() {
         CFG tempGrammar = new CFG(startsymbol, emptysymbol);
@@ -491,7 +489,8 @@ public class CFG {
     
     /**
      * @return the fully modified String on index 0 and the Nonterminals without
-     * <> on index 1 and the new <...>-Nonterminal for the left aside on index 2
+     *         <> on index 1 and the new <...>-Nonterminal for the left aside on
+     *         index 2
      */
     private List<String> createModifiedNonterminal(String[] s, int length) {
         List<String> result = new ArrayList<>();
@@ -586,6 +585,7 @@ public class CFG {
      * @param n
      * @return
      */
+    @SuppressWarnings("unused")
     private int ordinalIndexOf(String str, String substr, int n) {
         int pos = str.indexOf(substr);
         while (--n > 0 && pos != -1)
