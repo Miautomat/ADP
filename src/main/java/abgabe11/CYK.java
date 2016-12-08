@@ -138,7 +138,7 @@ public class CYK {
       if (i != 0 && (i % word.length()) == 0) {
         string.append("\n");
       }
-      string.append(String.format("%-10s", table.get(i).toString()));
+      string.append(String.format("%-9s", table.get(i).toString()));
     }
     string.append("\n");
     return string.toString();
