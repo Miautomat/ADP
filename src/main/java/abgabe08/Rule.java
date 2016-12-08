@@ -61,10 +61,6 @@ public class Rule {
      * @param right
      */
     public Rule(String left, Set<String> right) {
-        // <<<<<<< HEAD
-        // this(left);
-        // this.addRight(right);
-        // =======
         patternMaker();
         setLeft(left);
         addRight(right);
