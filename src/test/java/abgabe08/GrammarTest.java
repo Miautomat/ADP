@@ -9,16 +9,11 @@ import java.util.Set;
 import org.junit.Before;
 import org.junit.Test;
 
-import abgabe08.CFG;
-import abgabe08.Rule;
-
 /**
- * 
  * @author Mieke Narjes, David Hoeck, Luka Hartwig
- *
  */
-public class CFGTest {
-    CFG c1, chomsky1, chomsky2, chomsky3, chomsky4, chomsky5, chomsky6;
+public class GrammarTest {
+    Grammar c1, chomsky1, chomsky2, chomsky3, chomsky4, chomsky5, chomsky6;
     Set<Rule> expected;
     Set<String> nonterminals, terminals;
     String[] non = {"<'a'AB>", "A", "B", "S", "C", "D", "<ABC>", "<AB'c'>", "<'b'AB>", "<AB>",
@@ -28,7 +23,7 @@ public class CFGTest {
     
     @Before
     public void setUp() throws Exception {
-        c1 = new CFG("S", "e");
+        c1 = new Grammar("S", "e");
         c1.addRule(new Rule("D", "a"));
         c1.addRule(new Rule("A", "ABCd"));
         c1.addRule(new Rule("<ABC>", "<AB>C"));
@@ -50,12 +45,12 @@ public class CFGTest {
         terminals.addAll(Arrays.asList(term));
         
         // Test Setup for Chomsky
-        chomsky1 = new CFG("S", "e"); // Start
-        chomsky2 = new CFG("S", "e"); // Lambda-Free
-        chomsky3 = new CFG("S", "e"); // Unit-Rule Free
-        chomsky4 = new CFG("S", "e"); // terminal Tules added
-        chomsky5 = new CFG("S", "e"); // nonterminal Rules added
-        chomsky6 = new CFG("S", "e"); // with empty Word allowed
+        chomsky1 = new Grammar("S", "e"); // Start
+        chomsky2 = new Grammar("S", "e"); // Lambda-Free
+        chomsky3 = new Grammar("S", "e"); // Unit-Rule Free
+        chomsky4 = new Grammar("S", "e"); // terminal Tules added
+        chomsky5 = new Grammar("S", "e"); // nonterminal Rules added
+        chomsky6 = new Grammar("S", "e"); // with empty Word allowed
         // Pure Grammar
         chomsky1.addRule(new Rule("S", "ASA"));
         chomsky1.addRule(new Rule("S", "aB"));
@@ -66,7 +61,7 @@ public class CFGTest {
         
         // Lambda free
         // chomsky2.addRule(new Rule("Z", "S"));
-        // >>>>>>> CFG-Mieke
+        // >>>>>>> Grammar-Mieke
         chomsky2.addRule(new Rule("S", "ASA"));
         chomsky2.addRule(new Rule("S", "aB"));
         chomsky2.addRule(new Rule("S", "a"));
@@ -173,10 +168,10 @@ public class CFGTest {
     
     // @Test
     // public void toChomskyTest() {
-    // CFG chomskyFalse = chomsky1.toChomsky(false);
+    // Grammar chomskyFalse = chomsky1.toChomsky(false);
     // assertEquals(chomsky5, chomskyFalse);
     
-    // CFG chomskyTrue = chomsky1.toChomsky(true);
+    // Grammar chomskyTrue = chomsky1.toChomsky(true);
     // assert Equals(chomsky5, chomskyTrue);
     // }
     
