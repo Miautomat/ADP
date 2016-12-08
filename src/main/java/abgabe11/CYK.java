@@ -14,26 +14,44 @@ public class CYK {
     private String word;
     private List<Set<String>> table;
     
-    public CYK(Grammar grammer, String word) {
+    public CYK(Grammar grammar, String word) {
         // TODO falls toChomsky nicht funktioniert einfach weg lassen
-        this.table = new ArrayList<Set<String>>();
+        this.table = new ArrayList<Set<String>>(0);
         this.grammar = grammar.toChomsky(false);
-        if (word.toLowerCase().matches("[a-z]")) {
+        if (word.toLowerCase().matches("[a-z]*")) {
             this.word = word.toLowerCase();
         } else {
             throw new IllegalArgumentException("Illegal Argument: " + word.toLowerCase());
+        }
+        
+        for (int m = 0; m < word.length() * word.length(); m++) {
+            table.add(null);
         }
         
     }
     
     public boolean compute() {
         init();
-        for (int i = 1; i < word.length(); i++) {
-            for (int j = 0; j < word.length() - i; j++) {
+        for (int row = 1; row < word.length() + 1; row++) {
+            for (int col = 0; col < word.length() - row; col++) {
                 Set<String> result = new HashSet<>();
-                for (int k = 0; k < i; k++) {
-                    result.addAll(integrateAll(atIndex(j, k), atIndex(i, k)));
-                    add(j, j + i, result);
+                for (int k = 0; k < row; k++) {
+                    System.out.println("s1 - col: " + col + " k + col: " + (k + col));
+                    System.out
+                        .println("s2 - row + col: " + (row + col) + " col + k:" + (col + k + 1));
+                    
+                    int count = 0;
+                    for (Set<String> elem : table) {
+                        if (count % word.length() == 0) {
+                            System.out.print("\n");
+                        }
+                        count++;
+                        System.out.print(elem + "\t\t");
+                    }
+                    
+                    result.addAll(
+                        integrateAll(atIndex(col, k + col), atIndex(row + col, col + k + 1)));
+                    add(col, col + row, result);
                 }
             }
         }
@@ -49,7 +67,8 @@ public class CYK {
     
     private Set<String> integrateAll(Set<String> s1, Set<String> s2) {
         Set<String> result = new HashSet<>();
-        
+        System.out.println(s1);
+        System.out.println(s2);
         for (String elem1 : s1) {
             for (String elem2 : s2) {
                 result.addAll(integrate(elem1 + elem2));
