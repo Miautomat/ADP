@@ -43,7 +43,7 @@ public class CircularBuffer<E> implements ICircularBuffer<E> {
 
 
 
-		E elem = (E) strategy.dequeue();
+		E elem = strategy.dequeue();
 
 		numberOfELements--;
 
@@ -58,6 +58,6 @@ public class CircularBuffer<E> implements ICircularBuffer<E> {
 
 	@Override
 	public E first() {
-		return (E) strategy.first();
+		return strategy.first();
 	}
 }

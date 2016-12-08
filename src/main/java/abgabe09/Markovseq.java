@@ -9,16 +9,16 @@ public class Markovseq {
     
     public static void main(String[] args) {
         
-        int numberOfGeneratedBits = 16384;
+        int numberOfGeneratedBits = 100000;
         if (args.length == 1) {
             numberOfGeneratedBits = Integer.parseInt(args[0]);
         }
         
         double matrix[][] = {
-            {0.05, 0.85, 0.05, 0.05},
-            {0.05, 0.20, 0.70, 0.05},
-            {0.10, 0.10, 0.10, 0.70},
-            {0.65, 0.15, 0.15, 0.05}
+            {0.0, 1.0, 0.00, 0.00},
+            {0.0, 0.0, 1.0, 0.0},
+            {0.0, 0.0, 0.0, 1.0},
+            {1.0, 0.0, 0.0, 0.00}
         };
         
         /*

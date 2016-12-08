@@ -113,10 +113,6 @@ public class Huffman implements Algorithm {
                 }
             }
             out.write(node.word);
-            /*
-             * Since word is a char the number of written bytes is increased by
-             * 2 This is incredibly ugly.
-             */
             written++;
         }
         assert written == length;

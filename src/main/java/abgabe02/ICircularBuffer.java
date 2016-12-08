@@ -43,6 +43,6 @@ public interface ICircularBuffer<E> {
 	 * <b>Preconditions:</b><ul><li>buffer is not empty.</ul>
 	 * <b>Postconditions:</b><ul><li>always returns the first element of the queue.</ul>
 	 */
-	public E first();
+  E first();
 
 }

@@ -4,8 +4,8 @@ import java.util.Iterator;
 
 public interface State extends Iterable<String> {
 
-    public boolean isEnd();
+    boolean isEnd();
 
-    public Iterator<String> iterator();
+    Iterator<String> iterator();
 
 }
