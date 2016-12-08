@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /**
  * @author Mieke Narjes, Luka Hartwig, David Hoeck
  */
-public class CFG {
+public class Grammar {
     
     private Pattern nExpr = Pattern.compile("[A-Z]");
     private Matcher nMatcher;
@@ -25,7 +25,7 @@ public class CFG {
     private String startsymbol;
     private String emptysymbol;
     
-    public CFG(String startsymbol, String emptysymbol) {
+    public Grammar(String startsymbol, String emptysymbol) {
         nMatcher = nExpr.matcher(startsymbol);
         tMatcher = tExpr.matcher(emptysymbol);
         
@@ -39,7 +39,7 @@ public class CFG {
         }
     }
     
-    public CFG(String startsymbol, String emptysymbol, Set<Rule> rules) {
+    public Grammar(String startsymbol, String emptysymbol, Set<Rule> rules) {
         this(startsymbol, emptysymbol);
         this.rules.addAll(rules);
     }
@@ -117,8 +117,8 @@ public class CFG {
      * @return copy of (this) in chomskyNormalform
      */
     
-    public CFG toChomsky(boolean allowEmptyWord) {
-        CFG grammar = setLambdaFree();
+    public Grammar toChomsky(boolean allowEmptyWord) {
+        Grammar grammar = setLambdaFree();
         grammar.removeUnitRules();
         grammar.addTerminalRules();
         grammar.addNonterminalRules();
@@ -133,8 +133,8 @@ public class CFG {
      * 
      * @return a new grammar, without Lambdarules.
      */
-    public CFG setLambdaFree() {
-        CFG tempGrammar = new CFG(startsymbol, emptysymbol);
+    public Grammar setLambdaFree() {
+        Grammar tempGrammar = new Grammar(startsymbol, emptysymbol);
         
         // remove all rules which lead only to lambda
         Queue<Rule> onlyLambdaRules = new LinkedList<>(getOnlyLambdaRules());
@@ -161,7 +161,7 @@ public class CFG {
             }
         }
         
-        CFG grammar = new CFG(startsymbol, emptysymbol);
+        Grammar grammar = new Grammar(startsymbol, emptysymbol);
         Queue<Rule> lambdaRules = new LinkedList<>(tempGrammar.getLambdaRules());
         Set<String> checkedLeftsides = new HashSet<>();
         
@@ -398,7 +398,7 @@ public class CFG {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        CFG other = (CFG) obj;
+        Grammar other = (Grammar) obj;
         if (emptysymbol == null) {
             if (other.emptysymbol != null)
                 return false;
@@ -594,8 +594,8 @@ public class CFG {
     }
     
     public static void main(String[] args) {
-        CFG chomsky3 = new CFG("S", "e");
-        CFG chomsky4 = new CFG("S", "e");
+        Grammar chomsky3 = new Grammar("S", "e");
+        Grammar chomsky4 = new Grammar("S", "e");
         
         System.out.println("empty: " + chomsky3.equals(chomsky4));
         chomsky3.addRule(new Rule("Z", "ASA"));
