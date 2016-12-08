@@ -1,7 +1,6 @@
 package abgabe11;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -59,18 +58,7 @@ public class CYK {
 
           result.addAll(integrateAll(atIndex(cell1[0], cell1[1]), atIndex(cell2[0], cell2[1])));
           add(col, col + row, result);
-          System.out.println(grammar.toString());
-          System.out.println(word);
-          System.out.println(
-              "Step: "
-                  + row
-                  + " cell1="
-                  + Arrays.toString(cell1)
-                  + " cell2="
-                  + Arrays.toString(cell2)
-                  + " => "
-                  + result.toString());
-          System.out.println(toString());
+
         }
       }
     }
